@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class Answer extends StatelessWidget {
   final Function selectHandler;
@@ -7,12 +7,11 @@ class Answer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 100,
-        child: RaisedButton(
-          child: Text(answerText, style: TextStyle(fontSize: 18),),
-          textColor: Colors.white,
-          splashColor: Colors.red,
-          color: Colors.blueAccent,
+        width: 250,
+        margin: EdgeInsets.all(3),
+        child: CupertinoButton(
+          color: CupertinoColors.activeBlue,
+          child: Text(answerText,),
           onPressed: selectHandler,
         ));
   }

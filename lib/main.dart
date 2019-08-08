@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import './quiz.dart';
 import './result.dart';
@@ -66,18 +66,20 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text("Flutter Testing"),
-          ),
-          body: _questions.length > _questionIdx
-              ? Quiz(
-                  answerQuestions: _answerQuestions,
-                  questions: _questions,
-                  questionIdx: _questionIdx,
-                )
-              : Result(_totalScore, _resetQuiz)),
+    return CupertinoApp(
+      home: CupertinoPageScaffold(
+        navigationBar: CupertinoNavigationBar(
+          middle: Text("Flutter Testing"),
+        ),
+        child: SafeArea(
+            child: _questions.length > _questionIdx
+                ? Quiz(
+                    answerQuestions: _answerQuestions,
+                    questions: _questions,
+                    questionIdx: _questionIdx,
+                  )
+                : Result(_totalScore, _resetQuiz)),
+      ),
     );
   }
 }

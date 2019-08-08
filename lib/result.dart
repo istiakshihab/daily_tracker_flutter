@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class Result extends StatelessWidget {
   final int result;
   final Function reset;
 
-  Result(this.result,this.reset);
+  Result(this.result, this.reset);
 
   String get resultPhrase {
     var resultText;
@@ -26,10 +26,19 @@ class Result extends StatelessWidget {
         children: <Widget>[
           Text(
             resultPhrase,
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 36,
+              fontWeight: FontWeight.w600,
+              height: 2,
+            ),
             textAlign: TextAlign.center,
           ),
-          FlatButton(child: Text("Restart Quiz"), onPressed: reset ,),
+          CupertinoButton(
+            color: CupertinoColors.activeGreen,
+            child: Text("Restart Quiz"),
+            onPressed: reset,
+            pressedOpacity: .5,
+          ),
         ],
       ),
     );
